@@ -23,10 +23,10 @@
                 programs.home-manager.enable = true;
                 home.packages = with nixpkgs.legacyPackages.${system}; [
                     fish
-                        neovim
-                        ripgrep
-                        delta
-                        bat
+                    neovim
+                    ripgrep
+                    delta
+                    bat
                 ];
             }];
         };
