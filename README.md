@@ -32,7 +32,12 @@ Hello there! I believe that small choices in daily tools compound into big gains
 - **eza** - ls
 
 ### Misc
-- [nixos-lima](https://github.com/nixos-lima/nixos-lima)
 ```
-infocmp -x xterm-ghostty | limactl shell nixos tic -x -
+limactl create --name=ubuntu ./lima.yaml
+infocmp -x xterm-ghostty | limactl shell ubuntu tic -x -
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install
+nix profile add nixpkgs#neovim nixpkgs#eza nixpkgs#fzf nixpkgs#bat nixpkgs#delta nixpkgs#ripgrep nixpkgs#nodejs
+sudo apt update && sudo apt install -y fish
 ```
+- install claude code
+- install codex
