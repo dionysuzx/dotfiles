@@ -1,23 +1,15 @@
 # dotfiles
-Hello there! In this file I'll go through my chosen weapons. I believe that small changes to daily tools compound into big wins over time. These are tools that I love.
+Hello there! I believe that small choices in daily tools compound into big gains over time. These are tools that I love. Here is my [flake.nix](./flake.nix).
 
 ### Editors & Terminal
-- **zed** - primary code editor with agentic editing
-- **neovim** - text editing in terminal
-- **claude code** - local agentic editing
-- **built-in zed terminal** - terminal emulator
-- **zellij** - terminal multiplexing
-
-### Shell & Theme
+- **neovim** - text manipulation
+- **claude, codex** - local ai
+- **zed** - file explorer
+- **ghostty** - terminal / multiplexer / code editor
 - **fish** - shell
-- **starship** - shell theme
-- **caskaydia cove nerd font** - font
+- **monaspace argon** - font
 
-### Package Managers
-- **pnpm** - node package manager and node installation management
-- **uv** - python package manager
-- **cargo** > **homebrew** > raw binary with curl - package manager preference
-
-### Development Tools
-- **biomejs** - code formatting
+### Package Managers & Utils
+- **nix** - primary package manager
+- **homebrew** - secondary package manager on macOS
 - **just** - command executor
