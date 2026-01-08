@@ -12,7 +12,6 @@ Hello there! I believe that small choices in daily tools compound into big gains
 ### Package Managers & Utils
 - **nix** - primary package manager
 - **homebrew** - secondary package manager on macOS
-- **just** - command executor
 
 ### Keyboard
 - **apple magic keyboard** - keyboard
