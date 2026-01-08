@@ -30,3 +30,9 @@ Hello there! I believe that small choices in daily tools compound into big gains
 - **delta** - file differ
 - **ripgrep** - fast grep
 - **eza** - ls
+
+### Misc
+- [nixos-lima](https://github.com/nixos-lima/nixos-lima)
+```
+infocmp -x xterm-ghostty | limactl shell nixos tic -x -
+```
