@@ -1,5 +1,5 @@
 # dotfiles
-Hello there! I believe that small choices in daily tools compound into big gains over time. These are tools that I love. Here is my [flake.nix](./flake.nix).
+Hello there! I believe that small choices in daily tools compound into big gains over time. These are tools that I love. Here is my [flake.nix](./flake.nix) and [macOS setup](mac-setup.md).
 
 ### Editors & Terminal
 - **neovim** - text manipulation
