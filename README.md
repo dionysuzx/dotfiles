@@ -18,7 +18,7 @@ Hello there! I believe that small choices in daily tools compound into big gains
 - **karabiner elements** - keyboard configurator
 
 ### Other must haves
-- **amphetamine** - keeps computer awake
+- **amphetamine** - keeps computer awake (see [here](https://github.com/x74353/Amphetamine-Power-Protect/issues/6#issuecomment-3747401635) for standard/admin setup)
 - **vimium** - move around the browser
 - **tailscale** - easy wireguard vpn
 - **stats** - monitor system
