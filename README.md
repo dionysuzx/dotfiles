@@ -2,7 +2,7 @@
 Hello there! I believe that small choices in daily tools compound into big gains over time. These are tools that I love. Here is my [flake.nix](./flake.nix) and [macOS setup](mac-setup.md).
 
 ### Editors & Terminal
-- **neovim** - text manipulation
+- **[neovim](https://github.com/dionysuzx/astronvim)** - text manipulation (AstroNvim config)
 - **claude, codex** - local ai
 - **zed** - file explorer
 - **ghostty** - terminal / multiplexer / code editor
