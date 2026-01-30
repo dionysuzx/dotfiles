@@ -2,12 +2,11 @@
 Hello there! I believe that small choices in daily tools compound into big gains over time. These are tools that I love. Here is my [flake.nix](./flake.nix) and [macOS setup](mac-setup.md).
 
 ### Editors & Terminal
-- **[neovim](https://github.com/dionysuzx/astronvim)** - text manipulation (AstroNvim config)
+- **neovim** - text manipulation (see [here](https://github.com/dionysuzx/astronvim) for astronvim config)
 - **claude, codex** - local ai
-- **zed** - file explorer
 - **ghostty** - terminal / multiplexer / code editor
 - **fish** - shell
-- **monaspace argon** - font
+- **jetbrains mono** - font
 
 ### Package Managers & Utils
 - **nix** - primary package manager
@@ -22,9 +21,10 @@ Hello there! I believe that small choices in daily tools compound into big gains
 - **vimium** - move around the browser
 - **tailscale** - easy wireguard vpn
 - **stats** - monitor system
-- **lima vm (may switch to vmware fusion)** - vm isolation
+- **lima vm** - vm isolation
 
 ### GNU/Linux things
+- **fd** - find
 - **fzf** - fuzzy finder
 - **bat** - cat + less
 - **delta** - file differ
