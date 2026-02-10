@@ -72,7 +72,7 @@ memory: "48GiB"
 
 # Disk size
 # 🟢 Builtin default: "100GiB"
-disk: null
+disk: "500GiB"
 
 # Expose host directories to the guest, the mount point might be accessible from all UIDs in the guest
 # "location" can use these template variables: {{.Home}}, {{.Dir}}, {{.Name}}, {{.UID}}, {{.User}}, {{.Param.Key}},
