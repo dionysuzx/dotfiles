@@ -26,3 +26,28 @@ pull:
 push:
     cp "{{local_fish}}" "{{repo_fish}}"
     @echo "Pushed local -> repo"
+
+# Clone all repos into ~/fun
+pull-repos:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    dir="$HOME/fun"
+    clone() {
+        local repo="$1" dest="$2"
+        if [ -d "$dir/$dest" ]; then
+            echo "skip $dest (exists)"
+        else
+            git clone "$repo" "$dir/$dest"
+        fi
+    }
+    clone git@github.com:dionysuzx/axon.git axon
+    clone git@github.com:dionysuzx/clean.git clean
+    clone git@github.com:dionysuzx/dionysuz-xyz.git dionysuz-xyz
+    clone git@github.com:dionysuzx/dotfiles.git dotfiles
+    clone git@github.com:dionysuzx/forkcast.git forkcast
+    clone git@github.com:futurekittylabs/website.git futurekittylabs-com
+    clone git@github.com:futurekittylabs/homebrew-tap.git homebrew-tap
+    clone git@github.com:futurekittylabs/kittynode.git kittynode
+    clone git@github.com:dionysuzx/protocol-support.git octopus
+    clone git@github.com:dionysuzx/resume.git resume
+    clone git@github.com:dionysuzx/worktree.git worktree
