@@ -3,7 +3,7 @@ repo_fish := justfile_directory() / "config.fish"
 
 # Install dependencies (delta, etc.)
 setup:
-    brew install git-delta
+    nix profile add nixpkgs#neovim nixpkgs#eza nixpkgs#fzf nixpkgs#bat nixpkgs#delta nixpkgs#ripgrep nixpkgs#nodejs
 
 # Show diff between repo (baseline) and local fish config
 check:
