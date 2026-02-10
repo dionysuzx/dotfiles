@@ -11,7 +11,10 @@ check:
         echo "Fish config is in sync."; \
     else \
         echo "Fish config is out of sync:"; \
-        delta "{{repo_fish}}" "{{local_fish}}" || true; \
+        echo "  left = dotfiles (repo)"; \
+        echo "  right = local (machine)"; \
+        echo ""; \
+        delta --side-by-side "{{repo_fish}}" "{{local_fish}}" || true; \
     fi
 
 # Pull repo fish config to local machine
