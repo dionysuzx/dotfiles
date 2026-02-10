@@ -34,4 +34,7 @@ set -gx LIMA_WORKDIR /home/lucy.linux
 set -gx CLAUDE_CODE_HIDE_ACCOUNT_INFO 1
 set -gx IS_DEMO true
 
-lima
+# auto-enter lima VM if on host (not inside the VM)
+if command -q limactl
+    lima
+end
