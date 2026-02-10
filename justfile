@@ -1,5 +1,5 @@
 local_fish := env("HOME") / ".config/fish/config.fish"
-repo_fish := justfile_directory() / "fish/config.fish"
+repo_fish := justfile_directory() / "config.fish"
 
 # Install dependencies (delta, etc.)
 setup:
