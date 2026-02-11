@@ -64,7 +64,7 @@ images:
 
 # CPUs
 # 🟢 Builtin default: min(4, host CPU cores)
-cpus: 16
+cpus: 14
 
 # Memory size
 # 🟢 Builtin default: min("4GiB", half of host memory)
