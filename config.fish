@@ -25,6 +25,21 @@ if status is-interactive
     function limacopy
         limactl copy -r $argv ubuntu:/home/lucy.linux/
     end
+
+    function is_lima -d 'Check if running inside the Lima VM'
+        not command -q limactl
+    end
+
+    # report cwd to Ghostty from inside the VM so splits inherit cwd
+    if is_lima
+        function __update_cwd_osc --on-variable PWD -d 'Notify Ghostty of $PWD changes'
+            if status --is-command-substitution
+                return
+            end
+            printf \e\]7\;file://localhost%s\a (string escape --style=url $PWD)
+        end
+        __update_cwd_osc
+    end
 end
 
 set -gx EDITOR nvim
@@ -36,6 +51,6 @@ set -gx IS_DEMO true
 set -gx COLORTERM truecolor
 
 # auto-enter lima VM if on host (not inside the VM)
-if command -q limactl
+if not is_lima
     lima
 end
