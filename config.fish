@@ -19,6 +19,7 @@ if status is-interactive
     alias notes "vim ~/notes"
     alias gui "gitui"
     alias axonup "cargo install --path /Users/lucy/fun/axon"
+    alias lima "limactl shell --shell /usr/bin/fish ubuntu"
 
     # copy files/directories to the lima ubuntu VM's home directory
     function limacopy
