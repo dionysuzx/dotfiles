@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+# Ghostty sets PWD to the focused surface's cwd (from OSC 7) before exec'ing
+# the shell. All shells override PWD with getcwd() on startup, losing it.
+# Perl doesn't, so we capture it here and pass it through to fish.
+$ENV{_GHOSTTY_CWD} = $ENV{PWD} // "";
+exec("fish") or die "exec fish: $!";

@@ -30,12 +30,15 @@ if status is-interactive
         not command -q limactl
     end
 
-    # inside the VM, save cwd so new splits can inherit it
+    # report cwd to Ghostty so it can track per-surface
     if is_lima
-        function __save_lima_cwd --on-variable PWD
-            echo $PWD > /tmp/.lima-cwd
+        function __update_cwd_osc --on-variable PWD
+            if status --is-command-substitution
+                return
+            end
+            printf \e\]7\;file://localhost%s\a (string escape --style=url $PWD)
         end
-        __save_lima_cwd
+        __update_cwd_osc
     end
 end
 
@@ -48,9 +51,8 @@ set -gx COLORTERM truecolor
 
 # auto-enter lima VM if on host (not inside the VM)
 if not is_lima
-    set -l vm_cwd (limactl shell ubuntu -- cat /tmp/.lima-cwd 2>/dev/null)
-    if test -n "$vm_cwd"
-        limactl shell --workdir "$vm_cwd" --shell /usr/bin/fish ubuntu
+    if test -n "$_GHOSTTY_CWD"
+        limactl shell --workdir "$_GHOSTTY_CWD" --shell /usr/bin/fish ubuntu
     else
         limactl shell --shell /usr/bin/fish ubuntu
     end
