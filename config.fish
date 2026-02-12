@@ -16,7 +16,6 @@ if status is-interactive
     alias reload "source ~/.config/fish/config.fish"
     alias fvim "fzf --bind 'enter:become(nvim {})'"
     alias fbat "fzf --bind 'enter:become(bat {})'"
-    alias lima "limactl shell --shell /usr/bin/fish ubuntu"
     alias notes "vim ~/notes"
     alias gui "gitui"
     alias axonup "cargo install --path /Users/lucy/fun/axon"
@@ -26,7 +25,8 @@ if status is-interactive
         limactl copy -r $argv ubuntu:/home/lucy.linux/
     end
 
-    function is_lima -d 'Check if running inside the Lima VM'
+    # check if running inside the lima VM
+    function is_lima
         not command -q limactl
     end
 
@@ -52,6 +52,6 @@ if not is_lima
     if test -n "$vm_cwd"
         limactl shell --workdir "$vm_cwd" --shell /usr/bin/fish ubuntu
     else
-        lima
+        limactl shell --shell /usr/bin/fish ubuntu
     end
 end
