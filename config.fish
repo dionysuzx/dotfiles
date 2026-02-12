@@ -30,27 +30,28 @@ if status is-interactive
         not command -q limactl
     end
 
-    # report cwd to Ghostty from inside the VM so splits inherit cwd
+    # inside the VM, save cwd so new splits can inherit it
     if is_lima
-        function __update_cwd_osc --on-variable PWD -d 'Notify Ghostty of $PWD changes'
-            if status --is-command-substitution
-                return
-            end
-            printf \e\]7\;file://localhost%s\a (string escape --style=url $PWD)
+        function __save_lima_cwd --on-variable PWD
+            echo $PWD > /tmp/.lima-cwd
         end
-        __update_cwd_osc
+        __save_lima_cwd
     end
 end
 
 set -gx EDITOR nvim
 set -gx VISUAL nvim
 set -gx PATH $HOME/.local/bin $PATH
-set -gx LIMA_WORKDIR /home/lucy.linux
 set -gx CLAUDE_CODE_HIDE_ACCOUNT_INFO 1
 set -gx IS_DEMO true
 set -gx COLORTERM truecolor
 
 # auto-enter lima VM if on host (not inside the VM)
 if not is_lima
-    lima
+    set -l vm_cwd (limactl shell ubuntu -- cat /tmp/.lima-cwd 2>/dev/null)
+    if test -n "$vm_cwd"
+        limactl shell --workdir "$vm_cwd" --shell /usr/bin/fish ubuntu
+    else
+        lima
+    end
 end
