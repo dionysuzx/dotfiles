@@ -19,8 +19,10 @@ check:
 
 # Pull repo fish config to local machine
 pull:
+    git pull origin main
     cp "{{repo_fish}}" "{{local_fish}}"
     @echo "Pulled repo -> local"
+    exec fish
 
 # Push local fish config to repo
 push:
