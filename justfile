@@ -1,39 +1,41 @@
 local_fish := env("HOME") / ".config/fish/config.fish"
-repo_fish := justfile_directory() / "config.fish"
+repo_fish := env("HOME") / "dotfiles/config.fish"
+local_just := env("HOME") / "justfile"
+repo_just := env("HOME") / "dotfiles/justfile"
 
-# Install dependencies (delta, etc.)
+# Update AI coding tools
+ai:
+    claude update
+    bun add -g @openai/codex
+    bun add -g @google/gemini-cli
+
+# Install nix packages
 setup:
-    nix profile add nixpkgs#neovim nixpkgs#eza nixpkgs#fzf nixpkgs#bat nixpkgs#delta nixpkgs#ripgrep nixpkgs#nodejs
+    nix profile add nixpkgs#neovim nixpkgs#eza nixpkgs#fzf nixpkgs#bat nixpkgs#delta nixpkgs#ripgrep nixpkgs#nodejs nixpkgs#yazi
 
-# Show diff between repo (baseline) and local fish config
-check:
-    @if diff -q "{{repo_fish}}" "{{local_fish}}" > /dev/null 2>&1; then \
-        echo "Fish config is in sync."; \
-    else \
-        echo "Fish config is out of sync:"; \
-        echo "  left = dotfiles (repo)"; \
-        echo "  right = local (machine)"; \
-        echo ""; \
-        delta --side-by-side "{{repo_fish}}" "{{local_fish}}" || true; \
-    fi
+# Update everything
+update: ai
+    nix profile upgrade --all
 
-# Pull repo fish config to local machine
+# Pull dotfiles repo -> local machine
 pull:
     git pull origin main
     cp "{{repo_fish}}" "{{local_fish}}"
+    cp "{{repo_just}}" "{{local_just}}"
     @echo "Pulled repo -> local"
     exec fish
 
-# Push local fish config to repo
+# Push local machine -> dotfiles repo
 push:
     cp "{{local_fish}}" "{{repo_fish}}"
+    cp "{{local_just}}" "{{repo_just}}"
     @echo "Pushed local -> repo"
 
-# Clone all repos into ~/fun
-pull-repos:
+# Clone all repos into ~/
+repos:
     #!/usr/bin/env bash
     set -euo pipefail
-    dir="$HOME/fun"
+    dir="$HOME"
     clone() {
         local repo="$1" dest="$2"
         if [ -d "$dir/$dest" ]; then
@@ -42,6 +44,7 @@ pull-repos:
             git clone "$repo" "$dir/$dest"
         fi
     }
+    clone git@github.com:dionysuzx/astronvim.git astronvim
     clone git@github.com:dionysuzx/axon.git axon
     clone git@github.com:dionysuzx/clean.git clean
     clone git@github.com:dionysuzx/dionysuz-xyz.git dionysuz-xyz

@@ -24,20 +24,12 @@ Hello there! I believe that small choices in daily tools compound into big gains
 - **lima vm** - vm isolation
 
 ### GNU/Linux things
-- **fd** - find
-- **fzf** - fuzzy finder
-- **bat** - cat + less
-- **delta** - file differ
-- **ripgrep** - fast grep
-- **eza** - ls
+- see [./justfile](./justfile)
 
-### Misc
+### Lima VM
 ```
 limactl create --name=ubuntu ./lima.yaml
 infocmp -x xterm-ghostty | limactl shell ubuntu tic -x -
 curl -fsSL https://install.determinate.systems/nix | sh -s -- install
-nix profile add nixpkgs#neovim nixpkgs#eza nixpkgs#fzf nixpkgs#bat nixpkgs#delta nixpkgs#ripgrep nixpkgs#nodejs
 sudo apt update && sudo apt install -y fish
 ```
-- install claude code
-- install codex
