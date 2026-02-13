@@ -383,7 +383,7 @@ user:
   home: null
   # Shell. Needs to be an absolute path.
   # 🟢 Builtin default: "/bin/bash"
-  shell: null
+  shell: "/usr/bin/fish"
 
 vmOpts:
   qemu:
