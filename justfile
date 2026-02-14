@@ -11,7 +11,7 @@ ai:
 
 # Install nix packages
 setup:
-    nix profile add nixpkgs#neovim nixpkgs#eza nixpkgs#fzf nixpkgs#bat nixpkgs#delta nixpkgs#ripgrep nixpkgs#nodejs nixpkgs#yazi
+    nix profile add nixpkgs#neovim nixpkgs#eza nixpkgs#fzf nixpkgs#bat nixpkgs#delta nixpkgs#ripgrep nixpkgs#nodejs nixpkgs#yazi nixpkgs#zellij
 
 # Update everything
 update: ai
