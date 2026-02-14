@@ -27,17 +27,17 @@ if status is-interactive
         limactl copy -r $argv ubuntu:/home/lucy.linux/
     end
 
+    # check if running inside lima VM
+    function is_lima
+        not command -q limactl
+    end
+
     # copy to macOS clipboard via OSC 52 (only in lima VM, preserve native pbcopy on mac)
     if is_lima
         function pbcopy
             base64 | tr -d '\n' | read -z -l data
             printf '\033]52;c;%s\a' "$data"
         end
-    end
-
-    # check if running inside lima VM
-    function is_lima
-        not command -q limactl
     end
 end
 
