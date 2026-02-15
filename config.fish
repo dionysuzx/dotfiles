@@ -43,7 +43,7 @@ end
 
 set -gx EDITOR nvim
 set -gx VISUAL nvim
-set -gx PATH $HOME/.local/bin $PATH
+set -gx PATH $HOME/.bun/bin $HOME/.local/bin $PATH
 set -gx LIMA_WORKDIR /home/lucy.linux
 set -gx CLAUDE_CODE_HIDE_ACCOUNT_INFO 1
 set -gx IS_DEMO true
