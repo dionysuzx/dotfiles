@@ -50,6 +50,6 @@ set -gx IS_DEMO true
 set -gx COLORTERM truecolor
 
 # auto-enter lima VM if on host (not inside the VM)
-if not command -q limactl
+if command -q limactl
     lima
 end
