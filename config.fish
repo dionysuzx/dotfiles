@@ -17,6 +17,7 @@ if status is-interactive
     alias fvim "fzf --bind 'enter:become(nvim {})'"
     alias fbat "fzf --bind 'enter:become(bat {})'"
     alias lima "limactl shell --shell /usr/bin/fish ubuntu"
+    alias limaclean "rm -f ~/.lima/ubuntu/ssh.sock"
     alias notes "vim ~/notes"
     alias gui "gitui"
     alias axonup "cargo install --path /Users/lucy/fun/axon"
